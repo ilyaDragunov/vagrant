@@ -1,0 +1,208 @@
+user@ubuntu-vm:~/laba$ vagrant up
+Bringing machine 'kernel-update' up with 'virtualbox' provider...
+==> kernel-update: Box 'centos/stream8' could not be found. Attempting to find a                                                                                   nd install...
+    kernel-update: Box Provider: virtualbox
+    kernel-update: Box Version: 20210210.0
+==> kernel-update: Loading metadata for box 'centos/stream8'
+    kernel-update: URL: https://vagrantcloud.com/centos/stream8
+==> kernel-update: Adding box 'centos/stream8' (v20210210.0) for provider: virtu                                                                                   albox
+    kernel-update: Downloading: https://vagrantcloud.com/centos/boxes/stream8/ve                                                                                   rsions/20210210.0/providers/virtualbox.box
+Download redirected to host: cloud.centos.org
+An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.
+The requested URL returned error: 404
+user@ubuntu-vm:~$ mc
+user@ubuntu-vm:~/laba$ touch Vagrantfile
+user@ubuntu-vm:~/laba$ vagrant up
+Bringing machine 'kernel-update' up with 'virtualbox' provider...
+==> kernel-update: Importing base box 'centos/8'...
+==> kernel-update: Matching MAC address for NAT networking...
+==> kernel-update: Checking if box 'centos/8' version '2011.0' is up to date...
+==> kernel-update: Setting the name of the VM: laba_kernel-update_1682610645202_1646
+==> kernel-update: Clearing any previously set network interfaces...
+==> kernel-update: Preparing network interfaces based on configuration...
+    kernel-update: Adapter 1: nat
+==> kernel-update: Forwarding ports...
+    kernel-update: 22 (guest) => 2222 (host) (adapter 1)
+==> kernel-update: Running 'pre-boot' VM customizations...
+==> kernel-update: Booting VM...
+==> kernel-update: Waiting for machine to boot. This may take a few minutes...
+    kernel-update: SSH address: 127.0.0.1:2222
+    kernel-update: SSH username: vagrant
+    kernel-update: SSH auth method: private key
+    kernel-update:
+    kernel-update: Vagrant insecure key detected. Vagrant will automatically replace
+    kernel-update: this with a newly generated keypair for better security.
+    kernel-update:
+    kernel-update: Inserting generated public key within guest...
+    kernel-update: Removing insecure key from the guest if it's present...
+    kernel-update: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> kernel-update: Machine booted and ready!
+==> kernel-update: Checking for guest additions in VM...
+    kernel-update: No guest additions were detected on the base box for this VM! Guest
+    kernel-update: additions are required for forwarded ports, shared folders, host only
+    kernel-update: networking, and more. If SSH fails on this machine, please install
+    kernel-update: the guest additions and repackage the box to continue.
+    kernel-update:
+    kernel-update: This is not an error message; everything may continue to work properly,
+    kernel-update: in which case you may ignore this message.
+==> kernel-update: Setting hostname...
+user@ubuntu-vm:~/laba$ uname -r
+5.19.0-41-generic
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$ mc
+
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$ uname -r
+5.19.0-41-generic
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$ uname -r
+5.19.0-41-generic
+user@ubuntu-vm:~/laba$ sudo yum install -y
+[sudo] password for user:
+sudo: yum: command not found
+user@ubuntu-vm:~/laba$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+sudo: yum: command not found
+user@ubuntu-vm:~/laba$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+sudo: yum: command not found
+user@ubuntu-vm:~/laba$
+user@ubuntu-vm:~/laba$ vagrant ssh
+Last login: Fri Apr 28 14:36:20 2023 from 10.0.2.2
+[vagrant@kernel-update ~]$
+[vagrant@kernel-update ~]$
+[vagrant@kernel-update ~]$
+[vagrant@kernel-update ~]$
+[vagrant@kernel-update ~]$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Failed to set locale, defaulting to C.UTF-8
+CentOS Linux 8 - AppStream                                                                                                         139  B/s |  38  B     00:00
+Error: Failed to download metadata for repo 'appstream': Cannot prepare internal mirrorlist: No URLs in mirrorlist
+[vagrant@kernel-update ~]$ cat /etc/
+Display all 183 possibilities? (y or n)
+[vagrant@kernel-update ~]$ cat /etc/redhat-release .
+CentOS Linux release 8.3.2011
+cat: .: Is a directory
+[vagrant@kernel-update ~]$ cat /etc/redhat-release
+CentOS Linux release 8.3.2011
+[vagrant@kernel-update ~]$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Failed to set locale, defaulting to C.UTF-8
+CentOS Linux 8 - AppStream                                                                                                         5.7  B/s |  38  B     00:06
+Error: Failed to download metadata for repo 'appstream': Cannot prepare internal mirrorlist: No URLs in mirrorlist
+[vagrant@kernel-update ~]$ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+error: can't create transaction lock on /var/lib/rpm/.rpm.lock (Permission denied)
+error: https://www.elrepo.org/RPM-GPG-KEY-elrepo.org: key 1 import failed.
+[vagrant@kernel-update ~]$ sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+[vagrant@kernel-update ~]$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Failed to set locale, defaulting to C.UTF-8
+CentOS Linux 8 - AppStream                                                                                                          95  B/s |  38  B     00:00
+Error: Failed to download metadata for repo 'appstream': Cannot prepare internal mirrorlist: No URLs in mirrorlist
+[vagrant@kernel-update ~]$ cd /etc/yum.repos.d/
+[vagrant@kernel-update yum.repos.d]$ sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed: couldn't open temporary file /etc/yum.repos.d/sedUFUBYK: Permission denied
+[vagrant@kernel-update yum.repos.d]$ sudo sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+[vagrant@kernel-update yum.repos.d]$ sudo sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+[vagrant@kernel-update yum.repos.d]$ sudo yum install -y https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+Failed to set locale, defaulting to C.UTF-8
+CentOS Linux 8 - AppStream                                                                                                         2.8 MB/s | 8.4 MB     00:03
+CentOS Linux 8 - BaseOS                                                                                                            2.9 MB/s | 4.6 MB     00:01
+CentOS Linux 8 - Extras                                                                                                             15 kB/s |  10 kB     00:00
+elrepo-release-8.el8.elrepo.noarch.rpm                                                                                              17 kB/s |  13 kB     00:00
+Dependencies resolved.
+===================================================================================================================================================================
+ Package                                  Architecture                     Version                                    Repository                              Size
+===================================================================================================================================================================
+Installing:
+ elrepo-release                           noarch                           8.3-1.el8.elrepo                           @commandline                            13 k
+
+Transaction Summary
+===================================================================================================================================================================
+Install  1 Package
+
+Total size: 13 k
+Installed size: 5.0 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                           1/1
+  Installing       : elrepo-release-8.3-1.el8.elrepo.noarch                                                                                                    1/1
+  Verifying        : elrepo-release-8.3-1.el8.elrepo.noarch                                                                                                    1/1
+
+Installed:
+  elrepo-release-8.3-1.el8.elrepo.noarch
+
+Complete!
+[vagrant@kernel-update yum.repos.d]$ sudo yum --enablerepo elrepo-kernel install kernel-ml -y
+Failed to set locale, defaulting to C.UTF-8
+ELRepo.org Community Enterprise Linux Repository - el8                                                                             351 kB/s | 248 kB     00:00
+ELRepo.org Community Enterprise Linux Kernel Repository - el8                                                                      1.5 MB/s | 2.1 MB     00:01
+Dependencies resolved.
+===================================================================================================================================================================
+ Package                                   Architecture                   Version                                      Repository                             Size
+===================================================================================================================================================================
+Installing:
+ kernel-ml                                 x86_64                         6.3.0-1.el8.elrepo                           elrepo-kernel                         109 k
+Installing dependencies:
+ kernel-ml-core                            x86_64                         6.3.0-1.el8.elrepo                           elrepo-kernel                          38 M
+ kernel-ml-modules                         x86_64                         6.3.0-1.el8.elrepo                           elrepo-kernel                          33 M
+
+Transaction Summary
+===================================================================================================================================================================
+Install  3 Packages
+
+Total download size: 71 M
+Installed size: 112 M
+Downloading Packages:
+(1/3): kernel-ml-6.3.0-1.el8.elrepo.x86_64.rpm                                                                                     329 kB/s | 109 kB     00:00
+(2/3): kernel-ml-core-6.3.0-1.el8.elrepo.x86_64.rpm                                                                                2.0 MB/s |  38 MB     00:19
+(3/3): kernel-ml-modules-6.3.0-1.el8.elrepo.x86_64.rpm                                                                             1.6 MB/s |  33 MB     00:20
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                              3.5 MB/s |  71 MB     00:20
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                           1/1
+  Installing       : kernel-ml-core-6.3.0-1.el8.elrepo.x86_64                                                                                                  1/3
+  Running scriptlet: kernel-ml-core-6.3.0-1.el8.elrepo.x86_64                                                                                                  1/3
+  Installing       : kernel-ml-modules-6.3.0-1.el8.elrepo.x86_64                                                                                               2/3
+  Running scriptlet: kernel-ml-modules-6.3.0-1.el8.elrepo.x86_64                                                                                               2/3
+  Installing       : kernel-ml-6.3.0-1.el8.elrepo.x86_64                                                                                                       3/3
+  Running scriptlet: kernel-ml-core-6.3.0-1.el8.elrepo.x86_64                                                                                                  3/3
+  Running scriptlet: kernel-ml-6.3.0-1.el8.elrepo.x86_64                                                                                                       3/3
+  Verifying        : kernel-ml-6.3.0-1.el8.elrepo.x86_64                                                                                                       1/3
+  Verifying        : kernel-ml-core-6.3.0-1.el8.elrepo.x86_64                                                                                                  2/3
+  Verifying        : kernel-ml-modules-6.3.0-1.el8.elrepo.x86_64                                                                                               3/3
+
+Installed:
+  kernel-ml-6.3.0-1.el8.elrepo.x86_64              kernel-ml-core-6.3.0-1.el8.elrepo.x86_64              kernel-ml-modules-6.3.0-1.el8.elrepo.x86_64
+
+Complete!
+[vagrant@kernel-update yum.repos.d]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+Generating grub configuration file ...
+done
+[vagrant@kernel-update yum.repos.d]$ sudo grub2-set-default 0
+[vagrant@kernel-update yum.repos.d]$ sudo reboot
+Connection to 127.0.0.1 closed by remote host.
+u
+user@ubuntu-vm:~/laba$ vagrant up
+Bringing machine 'kernel-update' up with 'virtualbox' provider...
+==> kernel-update: Checking if box 'centos/8' version '2011.0' is up to date...
+==> kernel-update: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> kernel-update: flag to force provisioning. Provisioners marked to run always will still run.
+user@ubuntu-vm:~/laba$ vagrant ssh
+Last login: Fri Apr 28 14:51:19 2023 from 10.0.2.2
+[vagrant@kernel-update ~]$ uname -r
+6.3.0-1.el8.elrepo.x86_64
+
+
